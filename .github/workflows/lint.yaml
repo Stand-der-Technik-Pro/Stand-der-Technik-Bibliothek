@@ -1,0 +1,48 @@
+name: Quality Check
+
+on: [pull_request]
+
+jobs:
+  lint:
+    timeout-minutes: 10
+    runs-on: ubuntu-24.04
+
+    steps:
+    - name: Checkout code
+      # checkout v5
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+
+    - name: Set up Python
+      # setup-python v5
+      uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c
+      with:
+        python-version: '3.14'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r Tools/requirements.txt
+
+    - name: Check UTF-8 encoding
+      # check if the files are properly utf8 encoded
+      # this is just a check to make sure that we are not introducing non-utf8 files
+      # because they will show up missformatted in
+      run: python3 ./Tools/check_utf8_encoding.py
+
+    - name: Check for BOM in UTF-8 files
+      # generally it is not recommended to have BOM in utf8 files
+      # this could still be the case for some files, if they were converted from other encodings
+      # but in general it is not recommended to have BOM in utf8 files
+      # this is just a check to make sure that we are not introducing BOM in new files
+      if: always()
+      continue-on-error: true
+      run: python3 ./Tools/check_utf8_bom.py
+
+    - name: csvlinter
+      if: always()
+      uses: kcheriyath/csvlinter@776f3c1d25d37a339d3bcaea683efa1d0fee1576
+      with:
+        find_pattern: "*.csv"
+        find_path: "./Dokumentation/namespaces"
+        fail_on_error: "true"
+        extra_params: ""
