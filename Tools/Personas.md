@@ -18,7 +18,7 @@ Auch: Regulierer, Hersteller
 
 ### Beschreibung Provider
 
-Die Provider-Persona stellt anderen Nutzern (Auditoren, Automatisierern, Beratern) Quellinformationen zur Verfügung, auf deren Basis diese Ihre Tätigkeiten durchführen können.
+Die Provider-Persona stellt anderen Nutzern (Auditoren, Automatisierern, Beratern) Quellinformationen zur Verfügung, auf deren Basis diese ihre Tätigkeiten durchführen können.
 
 ### Usecases und Tools Provider
 
