@@ -24,8 +24,8 @@ Urheber des Skripts ist Ingo Henkel. ingo.henkel@secunet.com / secunet Security 
 
 	<xsl:template match="/*">
 		<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;</xsl:text>
-		<xsl:text disable-output-escaping="yes">&lt;meta http-equiv=Content-Type content="text/html; charset=utf-8"&gt;</xsl:text>
-		<html>
+		<xsl:text disable-output-escaping="yes">&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;</xsl:text>
+		<html lang="de">
 		<head><title><xsl:value-of select="$title"/></title></head>
 		<body>
 		<h1><em><xsl:value-of select="$title"/></em></h1>
