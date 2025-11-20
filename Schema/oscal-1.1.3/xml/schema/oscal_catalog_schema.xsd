@@ -1,4 +1,5 @@
-﻿<xs:schema xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+﻿<?xml version="1.0"?>
+<xs:schema xmlns="http://csrc.nist.gov/ns/oscal/1.0"
             xmlns:m="http://csrc.nist.gov/ns/oscal/metaschema/1.0"
             xmlns:xs="http://www.w3.org/2001/XMLSchema"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
