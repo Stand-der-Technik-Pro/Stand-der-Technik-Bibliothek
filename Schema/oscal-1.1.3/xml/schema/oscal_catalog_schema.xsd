@@ -2001,7 +2001,7 @@
       </xs:annotation>
       <xs:restriction base="xs:string">
          <xs:annotation>
-            <xs:documentation>The 'string' datatype restricts the XSD type by prohibiting leading 
+            <xs:documentation>The 'string' datatype restricts the XSD type by prohibiting leading
 					and trailing whitespace, and something (not only whitespace) is required.</xs:documentation>
          </xs:annotation>
          <xs:whiteSpace value="preserve"/>
@@ -2024,7 +2024,7 @@
       <xs:restriction base="StringDatatype">
          <xs:pattern value="(\p{L}|_)(\p{L}|\p{N}|[.\-_])*">
             <xs:annotation>
-					<!--<xs:documentation>An XML initial character (but not colon), followed 
+					<!--<xs:documentation>An XML initial character (but not colon), followed
 						by any XML name character (but not colon).</xs:documentation> -->
                <xs:documentation>A single token may not contain whitespace.
 					</xs:documentation>
