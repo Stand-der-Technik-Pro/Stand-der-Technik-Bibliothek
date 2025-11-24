@@ -12,15 +12,18 @@
 
 using System.Xml.Linq;
 
-string[] XsdFiles = Directory.GetFiles(@".\", "*.xsd", SearchOption.AllDirectories); // Working directory and all subdirectories
+string[] XsdFiles = Directory.GetFiles(@"..\..\..\..\..\oscal-1.1.3\xml\schema", "*.xsd", SearchOption.AllDirectories);
+
+Console.WriteLine($"{DateTime.Now}{Environment.NewLine}Looking for XSD 1.1 features:");
 
 foreach (string XsdFile in XsdFiles)
 {
+    Console.WriteLine();
+    Console.WriteLine(XsdFile);
+
     XDocument SchemaFile = XDocument.Load(XsdFile);
 
     var ns = "http://www.w3.org/2001/XMLSchema";
-
-    Console.WriteLine($"Looking for XSD 1.1 features: {XsdFile}");
 
     // https://www.w3.org/TR/xmlschema11-1/#cAssertions
 
@@ -33,8 +36,6 @@ foreach (string XsdFile in XsdFiles)
     var OpenContent = SchemaFile.Descendants(XName.Get("complexType", ns)).Where(e => (e.Attribute("openContent") != null));
 
     var DefaultAttrs = SchemaFile.Descendants(XName.Get("defaultAttributes", ns));
-
-    Console.WriteLine("Diagnostic Report for XSD Features:");
 
     Console.WriteLine($"Assertions: {AssertDataType.Count()}");
 
